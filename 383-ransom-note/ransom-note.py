@@ -1,26 +1,8 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        count = {}
-
-        for i in magazine:
-            count[i] = count.get(i, 0) + 1
-
         for i in ransomNote:
-            if i not in count or count[i] == 0:
+            if i in magazine:
+                magazine = magazine.replace(i,"",1)
+            else:
                 return False
-
-            count[i] -= 1
-
         return True
-        # count = {}
-
-        # for char in magazine:
-        #     count[char] = count.get(char, 0) + 1
-
-        # for char in ransomNote:
-        #     if char not in count or count[char] == 0:
-        #         return False
-
-        #     count[char] -= 1
-
-        # return True
