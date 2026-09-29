@@ -1,17 +1,11 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums: list[int]) -> int:
         
-        hashh = {}
-        maxx = 0
-        majority = 0
+        hashmapp = {}
+        reach = len(nums) // 2
 
         for i in nums:
-
-            hashh[i] = hashh.get(i, 0) + 1
-
-            if (maxx < hashh[i]):
-                maxx = hashh[i]
-                majority = i
-
-        return majority
-
+            hashmapp[i] = hashmapp.get(i, 0) + 1
+            if hashmapp[i] > reach :
+                return i
+        return -1
